@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TopHeaderCell" customModule="GrowApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fxy-te-Qyw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrowLogo" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-tM-0C8">
+                                <rect key="frame" x="10" y="5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="V2G-8i-hLl"/>
+                                    <constraint firstAttribute="height" constant="40" id="qwm-Q7-Qjk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXI-Xc-272">
+                                <rect key="frame" x="60" y="14.666666666666664" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrowLogo" translatesAutoresizingMaskIntoConstraints="NO" id="olw-Ob-xJU">
+                                <rect key="frame" x="352" y="12.666666666666664" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="CKb-kf-p8f"/>
+                                    <constraint firstAttribute="width" constant="25" id="rLi-IG-Wb7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.grid.2x2" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Po5-nc-LSI">
+                                <rect key="frame" x="317" y="14.33333333333333" width="25" height="22.000000000000007"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="aNi-hc-1Ho"/>
+                                    <constraint firstAttribute="width" constant="25" id="jrN-AO-Qye"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8ub-sY-UYQ">
+                                <rect key="frame" x="282" y="13.666666666666664" width="25" height="23.333333333333336"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="YTI-zU-0CI"/>
+                                    <constraint firstAttribute="width" constant="25" id="yT8-XC-wKv"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RXI-Xc-272" firstAttribute="centerY" secondItem="t2N-tM-0C8" secondAttribute="centerY" id="89b-Nj-F20"/>
+                            <constraint firstItem="t2N-tM-0C8" firstAttribute="centerY" secondItem="Fxy-te-Qyw" secondAttribute="centerY" id="8m9-9H-mDq"/>
+                            <constraint firstItem="Po5-nc-LSI" firstAttribute="leading" secondItem="8ub-sY-UYQ" secondAttribute="trailing" constant="10" id="DHH-MV-PpM"/>
+                            <constraint firstItem="olw-Ob-xJU" firstAttribute="centerY" secondItem="Fxy-te-Qyw" secondAttribute="centerY" id="PCO-W2-QAx"/>
+                            <constraint firstItem="8ub-sY-UYQ" firstAttribute="centerY" secondItem="Po5-nc-LSI" secondAttribute="centerY" id="TI8-w0-0Fq"/>
+                            <constraint firstItem="RXI-Xc-272" firstAttribute="leading" secondItem="t2N-tM-0C8" secondAttribute="trailing" constant="10" id="Ttn-VD-Ohn"/>
+                            <constraint firstItem="Po5-nc-LSI" firstAttribute="centerY" secondItem="olw-Ob-xJU" secondAttribute="centerY" id="X0C-zU-NgX"/>
+                            <constraint firstItem="t2N-tM-0C8" firstAttribute="leading" secondItem="Fxy-te-Qyw" secondAttribute="leading" constant="10" id="m93-Sy-SUc"/>
+                            <constraint firstAttribute="trailing" secondItem="olw-Ob-xJU" secondAttribute="trailing" constant="16" id="qbh-Qo-Dv1"/>
+                            <constraint firstItem="olw-Ob-xJU" firstAttribute="leading" secondItem="Po5-nc-LSI" secondAttribute="trailing" constant="10" id="vDG-2b-rAL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Fxy-te-Qyw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HDh-9b-DTF"/>
+                <constraint firstAttribute="trailing" secondItem="Fxy-te-Qyw" secondAttribute="trailing" id="QLg-rb-LMR"/>
+                <constraint firstAttribute="bottom" secondItem="Fxy-te-Qyw" secondAttribute="bottom" id="l0N-06-op6"/>
+                <constraint firstItem="Fxy-te-Qyw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pQf-Uu-L5Q"/>
+            </constraints>
+            <size key="customSize" width="393" height="64"/>
+            <connections>
+                <outlet property="gridImageView" destination="Po5-nc-LSI" id="jCT-bk-HZN"/>
+                <outlet property="logoImageView" destination="t2N-tM-0C8" id="K2Q-gL-4ko"/>
+                <outlet property="profileImageView" destination="olw-Ob-xJU" id="ZFg-No-Vw8"/>
+                <outlet property="searchImageView" destination="8ub-sY-UYQ" id="n8y-f8-wum"/>
+                <outlet property="titleLabel" destination="RXI-Xc-272" id="uae-CG-7So"/>
+            </connections>
+            <point key="canvasLocation" x="112.21374045801527" y="-14.788732394366198"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="GrowLogo" width="416" height="398"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
