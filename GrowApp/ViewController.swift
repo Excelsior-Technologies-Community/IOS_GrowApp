@@ -38,6 +38,10 @@ class ViewController: UIViewController  {
         collectionView.register(UINib(nibName: "TopHeaderCell", bundle: nil), forCellWithReuseIdentifier: "TopHeaderCell")
         collectionView.register(UINib(nibName: "TickerSectionCell", bundle: nil), forCellWithReuseIdentifier: "TickerSectionCell")
         collectionView.register(
+            UINib(nibName: "ProductsToolsSectionCell", bundle: nil),
+            forCellWithReuseIdentifier: "ProductsToolsSectionCell"
+        )
+        collectionView.register(
             UINib(nibName: "TabBarSectionCell", bundle: nil),
             forCellWithReuseIdentifier: "TabBarSectionCell"
         )
@@ -74,21 +78,21 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
             case .holdings, .positions, .orders:
                 return 1
             }
-
+        case 4:
+               return 1
         default:
             return 0
         }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return 5
     }
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         switch indexPath.section {
 
-        // 🔹 Section 0 — Header
         case 0:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "TopHeaderCell",
@@ -96,7 +100,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
             ) as! TopHeaderCell
             return cell
 
-        // 🔹 Section 1 — Ticker
         case 1:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "TickerSectionCell",
@@ -104,7 +107,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
             ) as! TickerSectionCell
             return cell
 
-        // 🔹 Section 2 — Tab Bar
         case 2:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "TabBarSectionCell",
@@ -112,7 +114,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
             ) as! TabBarSectionCell
 
             cell.selectedTab = selectedTab
-
             cell.onTabSelected = { [weak self] tab in
                 self?.selectedTab = tab
                 self?.collectionView.reloadSections(IndexSet(integer: 3))
@@ -120,61 +121,30 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
 
             return cell
 
-        // 🔹 Section 3 — Dynamic Content
         case 3:
+            // Explore tab content
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "MostBougthStock",
+                for: indexPath
+            ) as! MostBougthStock
 
-            switch selectedTab {
+            let stock = stocks[indexPath.item]
+            cell.configure(
+                title: stock.title,
+                price: stock.price,
+                change: stock.change,
+                isPositive: stock.isPositive
+            )
 
-            case .explore:
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "MostBougthStock",
-                    for: indexPath
-                ) as! MostBougthStock
+            return cell
 
-                let stock = stocks[indexPath.item]
+        case 4:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "ProductsToolsSectionCell",
+                for: indexPath
+            ) as! ProductsToolsSectionCell
 
-                cell.configure(
-                    title: stock.title,
-                    price: stock.price,
-                    change: stock.change,
-                    isPositive: stock.isPositive
-                )
-
-                return cell
-
-            case .watchlist:
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "MostBougthStock",
-                    for: indexPath
-                ) as! MostBougthStock
-
-                let stock = watchlistStocks[indexPath.item]
-
-                cell.configure(
-                    title: stock.title,
-                    price: stock.price,
-                    change: stock.change,
-                    isPositive: stock.isPositive
-                )
-
-                return cell
-
-            case .holdings, .positions, .orders:
-
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "MostBougthStock",
-                    for: indexPath
-                ) as! MostBougthStock
-
-                cell.configure(
-                    title: "No Data Available",
-                    price: "",
-                    change: "",
-                    isPositive: true
-                )
-
-                return cell
-            }
+            return cell
 
         default:
             return UICollectionViewCell()
@@ -206,6 +176,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
                 return CGSize(width: collectionView.frame.width, height: 100)
             }
 
+        case 4:
+            return CGSize(width: collectionView.frame.width, height: 200)
         default:
             return .zero
         }
