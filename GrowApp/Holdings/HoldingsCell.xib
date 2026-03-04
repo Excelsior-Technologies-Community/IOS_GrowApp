@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HoldingsCell" customModule="GrowApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="514"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="514"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4Q-ky-e8g">
+                        <rect key="frame" x="0.0" y="0.0" width="395" height="514"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyHoldings" translatesAutoresizingMaskIntoConstraints="NO" id="d8R-OW-hgF">
+                                <rect key="frame" x="97.666666666666686" y="30" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5ow-9u-fJk"/>
+                                    <constraint firstAttribute="width" constant="200" id="PX0-jt-v16"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no holdings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Cm-PI-3dM">
+                                <rect key="frame" x="110.66666666666669" y="249.99999999999997" width="174" height="21.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make your next investment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoJ-yf-9zH">
+                                <rect key="frame" x="100.33333333333333" y="281.66666666666669" width="194.66666666666669" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ads-2h-HE9">
+                                <rect key="frame" x="20" y="341" width="355" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track external stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar7-5P-999">
+                                        <rect key="frame" x="16" y="15.999999999999998" width="158.33333333333334" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easily import your stocks from other platforms to Groww. Track, manage, and invest, all in one app" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98S-bY-HQu">
+                                        <rect key="frame" x="16" y="44.333333333333314" width="323" height="33.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSn-vL-sZL">
+                                        <rect key="frame" x="16" y="98" width="90" height="36"/>
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.97647058823529409" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="1Ud-tK-D3X"/>
+                                            <constraint firstAttribute="height" constant="36" id="3Vk-yx-0AY"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Track"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ar7-5P-999" firstAttribute="leading" secondItem="Ads-2h-HE9" secondAttribute="leading" constant="16" id="6ui-HT-Xzt"/>
+                                    <constraint firstAttribute="trailing" secondItem="98S-bY-HQu" secondAttribute="trailing" constant="16" id="IO7-ot-Laf"/>
+                                    <constraint firstItem="98S-bY-HQu" firstAttribute="top" secondItem="ar7-5P-999" secondAttribute="bottom" constant="8" id="JbF-Nr-czS"/>
+                                    <constraint firstItem="98S-bY-HQu" firstAttribute="leading" secondItem="Ads-2h-HE9" secondAttribute="leading" constant="16" id="V7L-o6-rGo"/>
+                                    <constraint firstItem="NSn-vL-sZL" firstAttribute="leading" secondItem="Ads-2h-HE9" secondAttribute="leading" constant="16" id="YLF-cB-cja"/>
+                                    <constraint firstAttribute="bottom" secondItem="NSn-vL-sZL" secondAttribute="bottom" constant="16" id="gbj-DO-hvn"/>
+                                    <constraint firstAttribute="height" constant="150" id="k5F-c0-sIM"/>
+                                    <constraint firstItem="ar7-5P-999" firstAttribute="top" secondItem="Ads-2h-HE9" secondAttribute="top" constant="16" id="v5g-Ex-MfQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ads-2h-HE9" firstAttribute="leading" secondItem="G4Q-ky-e8g" secondAttribute="leading" constant="20" id="58I-xG-yrb"/>
+                            <constraint firstItem="VoJ-yf-9zH" firstAttribute="top" secondItem="9Cm-PI-3dM" secondAttribute="bottom" constant="10" id="58j-c0-rnU"/>
+                            <constraint firstItem="d8R-OW-hgF" firstAttribute="centerX" secondItem="G4Q-ky-e8g" secondAttribute="centerX" id="7MV-Ga-O4T"/>
+                            <constraint firstItem="9Cm-PI-3dM" firstAttribute="centerX" secondItem="d8R-OW-hgF" secondAttribute="centerX" id="831-aa-GO7"/>
+                            <constraint firstItem="d8R-OW-hgF" firstAttribute="top" secondItem="G4Q-ky-e8g" secondAttribute="top" constant="30" id="KkJ-Vg-nj0"/>
+                            <constraint firstItem="VoJ-yf-9zH" firstAttribute="centerX" secondItem="9Cm-PI-3dM" secondAttribute="centerX" id="Viu-Sa-ET6"/>
+                            <constraint firstItem="Ads-2h-HE9" firstAttribute="top" secondItem="VoJ-yf-9zH" secondAttribute="bottom" constant="40" id="hV3-TR-Rnc"/>
+                            <constraint firstItem="9Cm-PI-3dM" firstAttribute="top" secondItem="d8R-OW-hgF" secondAttribute="bottom" constant="20" id="o0a-hD-QCV"/>
+                            <constraint firstAttribute="trailing" secondItem="Ads-2h-HE9" secondAttribute="trailing" constant="20" id="teT-tA-USU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="G4Q-ky-e8g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0vB-iq-AMx"/>
+                <constraint firstAttribute="bottom" secondItem="G4Q-ky-e8g" secondAttribute="bottom" id="XZy-Ar-EHs"/>
+                <constraint firstItem="G4Q-ky-e8g" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sKh-5j-8MC"/>
+                <constraint firstAttribute="trailing" secondItem="G4Q-ky-e8g" secondAttribute="trailing" id="ygg-qz-5wx"/>
+            </constraints>
+            <size key="customSize" width="395" height="514"/>
+            <point key="canvasLocation" x="393.12977099236639" y="150.70422535211267"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="EmptyHoldings" width="843" height="924"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

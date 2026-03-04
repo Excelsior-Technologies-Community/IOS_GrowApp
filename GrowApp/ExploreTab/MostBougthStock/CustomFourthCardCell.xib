@@ -28,35 +28,35 @@
                                     <constraint firstAttribute="height" constant="40" id="dUc-iC-Jv2"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrowLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qug-53-jxC">
-                                <rect key="frame" x="80" y="20" width="40" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrowLogo" translatesAutoresizingMaskIntoConstraints="NO" id="T2h-rR-OaE">
+                                <rect key="frame" x="70" y="20" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0Du-K5-Xgs"/>
-                                    <constraint firstAttribute="width" constant="40" id="F8d-kq-wcR"/>
+                                    <constraint firstAttribute="width" constant="40" id="DeQ-kk-fPB"/>
+                                    <constraint firstAttribute="height" constant="40" id="anR-hR-LDx"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrowLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lnT-Dn-BF4">
-                                <rect key="frame" x="20" y="80" width="40" height="40"/>
+                                <rect key="frame" x="20" y="70" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Z6H-y2-gN3"/>
                                     <constraint firstAttribute="height" constant="40" id="yyX-6H-Yjf"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrowLogo" translatesAutoresizingMaskIntoConstraints="NO" id="kx9-l1-hl6">
-                                <rect key="frame" x="80" y="80" width="40" height="40"/>
+                                <rect key="frame" x="70" y="70" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JOu-uh-21F"/>
                                     <constraint firstAttribute="width" constant="40" id="MVg-Uv-gaE"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYM-jV-LIG">
-                                <rect key="frame" x="19.999999999999996" y="140" width="62.666666666666657" height="30"/>
+                                <rect key="frame" x="19.999999999999996" y="130" width="62.666666666666657" height="40"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pWN-2s-ow4">
-                                <rect key="frame" x="92.666666666666671" y="152" width="10" height="6.3333333333333144"/>
+                                <rect key="frame" x="92.666666666666671" y="147" width="10" height="6.3333333333333144"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="czR-T2-GqF"/>
@@ -66,19 +66,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qug-53-jxC" firstAttribute="top" secondItem="RJi-7b-1Yb" secondAttribute="top" id="1ta-nx-Eoa"/>
                             <constraint firstItem="pWN-2s-ow4" firstAttribute="leading" secondItem="wYM-jV-LIG" secondAttribute="trailing" constant="10" id="2bz-os-uKy"/>
                             <constraint firstItem="wYM-jV-LIG" firstAttribute="top" secondItem="lnT-Dn-BF4" secondAttribute="bottom" constant="20" id="7Hf-Zi-wTr"/>
-                            <constraint firstItem="kx9-l1-hl6" firstAttribute="top" secondItem="qug-53-jxC" secondAttribute="bottom" constant="20" id="82n-QF-xAr"/>
                             <constraint firstItem="RJi-7b-1Yb" firstAttribute="top" secondItem="ILv-DI-GSm" secondAttribute="top" constant="20" id="Avq-tf-jRg"/>
                             <constraint firstAttribute="bottom" secondItem="wYM-jV-LIG" secondAttribute="bottom" constant="18" id="Drz-f6-86d"/>
                             <constraint firstItem="pWN-2s-ow4" firstAttribute="centerY" secondItem="wYM-jV-LIG" secondAttribute="centerY" id="H7f-VB-gak"/>
-                            <constraint firstItem="kx9-l1-hl6" firstAttribute="leading" secondItem="lnT-Dn-BF4" secondAttribute="trailing" constant="20" id="N4E-7N-1KF"/>
+                            <constraint firstItem="kx9-l1-hl6" firstAttribute="leading" secondItem="lnT-Dn-BF4" secondAttribute="trailing" constant="10" id="N4E-7N-1KF"/>
+                            <constraint firstItem="T2h-rR-OaE" firstAttribute="leading" secondItem="RJi-7b-1Yb" secondAttribute="trailing" constant="10" id="V7K-7a-n4j"/>
+                            <constraint firstItem="T2h-rR-OaE" firstAttribute="centerY" secondItem="RJi-7b-1Yb" secondAttribute="centerY" id="VOA-So-rTb"/>
                             <constraint firstItem="RJi-7b-1Yb" firstAttribute="leading" secondItem="ILv-DI-GSm" secondAttribute="leading" constant="20" id="e6E-fi-5NX"/>
-                            <constraint firstItem="qug-53-jxC" firstAttribute="leading" secondItem="RJi-7b-1Yb" secondAttribute="trailing" constant="20" id="gaF-ux-0jS"/>
-                            <constraint firstAttribute="trailing" secondItem="qug-53-jxC" secondAttribute="trailing" constant="80" id="ggu-eT-8pH"/>
-                            <constraint firstItem="lnT-Dn-BF4" firstAttribute="top" secondItem="RJi-7b-1Yb" secondAttribute="bottom" constant="20" id="m7p-3K-Ypn"/>
+                            <constraint firstItem="lnT-Dn-BF4" firstAttribute="top" secondItem="RJi-7b-1Yb" secondAttribute="bottom" constant="10" id="m7p-3K-Ypn"/>
                             <constraint firstItem="wYM-jV-LIG" firstAttribute="leading" secondItem="ILv-DI-GSm" secondAttribute="leading" constant="20" id="mNv-s6-7vv"/>
+                            <constraint firstItem="kx9-l1-hl6" firstAttribute="top" secondItem="T2h-rR-OaE" secondAttribute="bottom" constant="10" id="oUh-Y9-JhW"/>
                             <constraint firstItem="lnT-Dn-BF4" firstAttribute="leading" secondItem="ILv-DI-GSm" secondAttribute="leading" constant="20" id="y85-3d-nML"/>
                         </constraints>
                     </view>
@@ -95,7 +94,6 @@
             <connections>
                 <outlet property="containerView" destination="ILv-DI-GSm" id="4wj-tv-had"/>
                 <outlet property="img1" destination="RJi-7b-1Yb" id="aAh-M0-9Tc"/>
-                <outlet property="img2" destination="qug-53-jxC" id="JuN-oi-XIK"/>
                 <outlet property="img3" destination="lnT-Dn-BF4" id="0in-DA-ggX"/>
                 <outlet property="img4" destination="kx9-l1-hl6" id="Ffr-oB-GVc"/>
                 <outlet property="seeMoreLabel" destination="wYM-jV-LIG" id="krE-WK-MQH"/>
