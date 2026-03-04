@@ -6,15 +6,30 @@
 //
 
 import UIKit
-
+struct ProductItem {
+    let title: String
+    let imageName: String
+}
 class ProductsToolsSectionCell: UICollectionViewCell {
 
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let items = ["MTF", "Stock SIP", "ETF", "IPO", "Bonds"]
+  
+    let items: [ProductItem] = [
+        ProductItem(title: "MTF", imageName: "MTF"),
+        ProductItem(title: "Stock SIP", imageName: "SIP"),
+        ProductItem(title: "ETF", imageName: "ETF"),
+        ProductItem(title: "IPO", imageName: "IPO"),
+        ProductItem(title: "Bonds", imageName: "Bonds")
+    ]
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .vertical   // Important
+            layout.minimumInteritemSpacing = 16
+            layout.minimumLineSpacing = 0
+        }
         collectionView.delegate = self
         collectionView.dataSource = self
 
@@ -44,7 +59,8 @@ UICollectionViewDelegateFlowLayout {
             for: indexPath
         ) as! ProductToolItemCell
         print("Loading item:", indexPath.item)
-        cell.configure(title: items[indexPath.item])
+        let item = items[indexPath.item]
+        cell.configure(item: item)
 
         return cell
     }
@@ -53,6 +69,11 @@ UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: 90, height: 100)
+        let totalSpacing: CGFloat = 16 * 4   // spacing between 5 items
+        let availableWidth = collectionView.frame.width - totalSpacing
+
+        let width = availableWidth / 5
+
+        return CGSize(width: width, height: 100)
     }
 }

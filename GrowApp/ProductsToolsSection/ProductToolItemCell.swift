@@ -17,7 +17,8 @@ class ProductToolItemCell: UICollectionViewCell {
         // Initialization code
     }
    
-      func configure(title: String) {
-          titleLabel.text = title
-      }
+    func configure(item: ProductItem) {
+        titleLabel.text = item.title
+        iconImageView.image = UIImage(named: item.imageName)
+    }
 }

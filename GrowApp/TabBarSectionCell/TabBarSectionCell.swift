@@ -15,6 +15,7 @@ class TabBarSectionCell: UICollectionViewCell {
     var selectedTab: StockTab = .explore
     var onTabSelected: ((StockTab) -> Void)?
     private var indicatorLeadingConstraint: NSLayoutConstraint?
+    private let baseLineView = UIView()
     private var indicatorWidthConstraint: NSLayoutConstraint?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +35,17 @@ class TabBarSectionCell: UICollectionViewCell {
             layout.estimatedItemSize = .zero   // 🔥 VERY IMPORTANT
         }
 
+        // Base line under all tabs
+        baseLineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.4)
+        baseLineView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(baseLineView)
+
+        NSLayoutConstraint.activate([
+            baseLineView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+            baseLineView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+            baseLineView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            baseLineView.heightAnchor.constraint(equalToConstant: 1)
+        ])
         collectionView.register(
             UINib(nibName: "TabButtonCell", bundle: nil),
             forCellWithReuseIdentifier: "TabButtonCell"
@@ -54,9 +66,11 @@ class TabBarSectionCell: UICollectionViewCell {
     }
     private func moveIndicator(to indexPath: IndexPath) {
 
-        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        collectionView.layoutIfNeeded()
 
-        let cellFrame = collectionView.convert(cell.frame, to: collectionView)
+        guard let attributes = collectionView.layoutAttributesForItem(at: indexPath) else { return }
+
+        let cellFrame = attributes.frame
 
         indicatorLeadingConstraint?.constant = cellFrame.origin.x
         indicatorWidthConstraint?.constant = cellFrame.width
@@ -67,7 +81,7 @@ class TabBarSectionCell: UICollectionViewCell {
     }
     private func setupIndicator() {
 
-        indicatorView.backgroundColor = .white
+        indicatorView.backgroundColor = .black
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(indicatorView)
@@ -79,7 +93,7 @@ class TabBarSectionCell: UICollectionViewCell {
             indicatorLeadingConstraint!,
             indicatorWidthConstraint!,
             indicatorView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
-            indicatorView.heightAnchor.constraint(equalToConstant: 2)
+            indicatorView.heightAnchor.constraint(equalToConstant: 3)
         ])
     }
 }
@@ -114,7 +128,9 @@ extension TabBarSectionCell: UICollectionViewDelegate,
         selectedTab = tabs[indexPath.item]
         collectionView.reloadData()
 
-        moveIndicator(to: indexPath)
+        DispatchQueue.main.async {
+            self.moveIndicator(to: indexPath)
+        }
 
         onTabSelected?(selectedTab)
     }

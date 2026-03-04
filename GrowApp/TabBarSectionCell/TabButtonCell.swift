@@ -13,11 +13,13 @@ class TabButtonCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
 
+    private let baseLineView = UIView()
     override func awakeFromNib() {
         super.awakeFromNib()
 
         contentView.layer.cornerRadius = 18
         contentView.layer.masksToBounds = true
+        
     }
 
     func configure(with tab: StockTab, selected: Bool) {

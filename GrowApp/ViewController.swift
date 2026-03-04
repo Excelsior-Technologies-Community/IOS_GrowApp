@@ -24,8 +24,7 @@ class ViewController: UIViewController  {
     let stocks: [Stock] = [
         Stock(title: "Tejas Networks", price: "₹485.60", change: "+49.75 (11.41%)", isPositive: true),
         Stock(title: "Tata Silver ETF", price: "₹27.84", change: "+2.19 (8.54%)", isPositive: true),
-        Stock(title: "Tata Gold ETF", price: "₹16.20", change: "+0.80 (5.19%)", isPositive: true),
-        Stock(title: "IdeaForge", price: "₹441.30", change: "+28.30 (6.85%)", isPositive: true)
+        Stock(title: "Tata Gold ETF", price: "₹16.20", change: "+0.80 (5.19%)", isPositive: true)
     ]
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -44,6 +43,10 @@ class ViewController: UIViewController  {
         collectionView.register(
             UINib(nibName: "TabBarSectionCell", bundle: nil),
             forCellWithReuseIdentifier: "TabBarSectionCell"
+        )
+        collectionView.register(
+            UINib(nibName: "CustomFourthCardCell", bundle: nil),
+            forCellWithReuseIdentifier: "CustomFourthCardCell"
         )
     }
 
@@ -72,7 +75,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
         case 3:
             switch selectedTab {
             case .explore:
-                return stocks.count
+                return min(stocks.count, 3) + 1
             case .watchlist:
                 return watchlistStocks.count
             case .holdings, .positions, .orders:
@@ -121,23 +124,47 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate,U
 
             return cell
 
+    
         case 3:
-            // Explore tab content
+
+            if selectedTab == .explore {
+
+                // 4th card (custom card)
+                if indexPath.item == stocks.count {
+
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: "CustomFourthCardCell",
+                        for: indexPath
+                    ) as! CustomFourthCardCell
+
+                    return cell
+                }
+
+                // Normal stock cards
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "MostBougthStock",
+                    for: indexPath
+                ) as! MostBougthStock
+
+                let stock = stocks[indexPath.item]
+
+                cell.configure(
+                    title: stock.title,
+                    price: stock.price,
+                    change: stock.change,
+                    isPositive: stock.isPositive
+                )
+
+                return cell
+            }
+
+            // other tabs
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "MostBougthStock",
                 for: indexPath
             ) as! MostBougthStock
 
-            let stock = stocks[indexPath.item]
-            cell.configure(
-                title: stock.title,
-                price: stock.price,
-                change: stock.change,
-                isPositive: stock.isPositive
-            )
-
             return cell
-
         case 4:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "ProductsToolsSectionCell",
