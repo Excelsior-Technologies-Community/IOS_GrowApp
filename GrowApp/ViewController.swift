@@ -13,13 +13,19 @@ enum StockTab {
     case orders
     case watchlist
 }
+
 struct Holding {
     let title: String
     let price: String
     let change: String
     let isPositive: Bool
 }
-
+enum TabType {
+    case explore
+    case positions
+    case holdings
+    case orders
+}
 var holdings: [Holding] = []
 
 var tools: [String] = [
@@ -42,6 +48,7 @@ class ViewController: UIViewController  {
         Stock(title: "Tata Gold ETF", price: "₹16.20", change: "+0.80 (5.19%)", isPositive: true)
     ]
     @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +59,10 @@ class ViewController: UIViewController  {
         collectionView.register(UINib(nibName: "MostBougthStock", bundle: nil), forCellWithReuseIdentifier: "MostBougthStock")
         collectionView.register(UINib(nibName: "TopHeaderCell", bundle: nil), forCellWithReuseIdentifier: "TopHeaderCell")
         collectionView.register(UINib(nibName: "TickerSectionCell", bundle: nil), forCellWithReuseIdentifier: "TickerSectionCell")
+        collectionView.register(
+            UINib(nibName: "OrdersEmptyCell", bundle: nil),
+            forCellWithReuseIdentifier: "OrdersEmptyCell"
+        )
         collectionView.register(
             UINib(nibName: "ProductsToolsSectionCell", bundle: nil),
             forCellWithReuseIdentifier: "ProductsToolsSectionCell"
@@ -110,6 +121,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             case .watchlist:
                 return watchlistStocks.count
 
+            case .orders:
+                   return 1
+                
             default:
                 return 0
             }
@@ -244,6 +258,15 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
                 return cell
 
+            case .orders:
+
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "OrdersEmptyCell",
+                    for: indexPath
+                ) as! OrdersEmptyCell
+
+                return cell
+                
             default:
                 return UICollectionViewCell()
             }
@@ -299,7 +322,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                     // Holdings list
                     return CGSize(width: collectionView.frame.width, height: 100)
                 }
-
+            case .orders:
+                return CGSize(width: collectionView.frame.width, height: 300)
+                
             default:
                 return .zero
             }
