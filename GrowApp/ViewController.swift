@@ -289,7 +289,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
            
             case .positions:
-                return CGSize(width: collectionView.frame.width, height: 700)
+                return CGSize(width: collectionView.frame.width, height: 850)
             case .holdings:
 
                 if holdings.isEmpty {
