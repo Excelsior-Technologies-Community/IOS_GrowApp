@@ -22,7 +22,7 @@ class CustomFourthCardCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 16
         containerView.clipsToBounds = true
         containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor.black.cgColor
+        containerView.layer.borderColor = UIColor.gray.cgColor
     }
 
 }

@@ -34,21 +34,31 @@ var tools: [String] = [
     "Compare",
     "ETF"
 ]
+struct WatchlistStock {
+    let name: String
+    let price: String
+    let change: String
+}
+
+
 class ViewController: UIViewController  {
  
-     
-    var selectedTab: StockTab = .explore
-    let watchlistStocks: [Stock] = [
-        Stock(title: "Infosys", price: "₹1500", change: "+20 (1.3%)", isPositive: true),
-        Stock(title: "HDFC Bank", price: "₹1650", change: "-10 (0.6%)", isPositive: false)
+    var watchlistStocks: [WatchlistStock] = [
+        WatchlistStock(name: "Vedanta", price: "₹733.05", change: "+32.05 (4.57%)"),
+        WatchlistStock(name: "Tata Steel", price: "₹201.75", change: "+5.02 (2.55%)"),
+        WatchlistStock(name: "NTPC", price: "₹376.95", change: "+11.15 (3.05%)"),
+        WatchlistStock(name: "Eternal (Zomato)", price: "₹234.91", change: "-5.82 (2.42%)"),
+        WatchlistStock(name: "PNB", price: "₹122.30", change: "+0.93 (0.77%)")
     ]
+    var selectedTab: StockTab = .explore
+  
     let stocks: [Stock] = [
         Stock(title: "Tejas Networks", price: "₹485.60", change: "+49.75 (11.41%)", isPositive: true),
         Stock(title: "Tata Silver ETF", price: "₹27.84", change: "+2.19 (8.54%)", isPositive: true),
         Stock(title: "Tata Gold ETF", price: "₹16.20", change: "+0.80 (5.19%)", isPositive: true)
     ]
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var topMoversCardsCell: TopMoversCardsCell?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,6 +89,29 @@ class ViewController: UIViewController  {
             UINib(nibName: "HoldingsCell", bundle: nil),
             forCellWithReuseIdentifier: "HoldingsCell"
         )
+        collectionView.register(
+             UINib(nibName: "WatchlistHeaderCell", bundle: nil),
+             forCellWithReuseIdentifier: "WatchlistHeaderCell"
+         )
+
+         collectionView.register(
+             UINib(nibName: "WatchlistSortCell", bundle: nil),
+             forCellWithReuseIdentifier: "WatchlistSortCell"
+         )
+
+         collectionView.register(
+             UINib(nibName: "WatchlistStockCell", bundle: nil),
+             forCellWithReuseIdentifier: "WatchlistStockCell"
+         )
+        collectionView.register(
+            UINib(nibName: "TopMoversHeaderCell", bundle: nil),
+            forCellWithReuseIdentifier: "TopMoversHeaderCell"
+        )
+
+        collectionView.register(
+            UINib(nibName: "TopMoversCardsCell", bundle: nil),
+            forCellWithReuseIdentifier: "TopMoversCardsCell"
+        )
     }
 
 
@@ -87,7 +120,7 @@ class ViewController: UIViewController  {
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return 6
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -119,7 +152,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 return holdings.isEmpty ? 1 : holdings.count
 
             case .watchlist:
-                return watchlistStocks.count
+                return watchlistStocks.count + 2
 
             case .orders:
                    return 1
@@ -131,6 +164,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             // Products section only in Explore
             return selectedTab == .explore ? 1 : 0
 
+        case 5:
+              return 2
+            
+            
         default:
             return 0
         }
@@ -240,24 +277,41 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 )
 
                 return cell
+       
             case .watchlist:
 
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "MostBougthStock",
-                    for: indexPath
-                ) as! MostBougthStock
+                if indexPath.item == 0 {
 
-                let stock = watchlistStocks[indexPath.item]
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: "WatchlistHeaderCell",
+                        for: indexPath
+                    ) as! WatchlistHeaderCell
 
-                cell.configure(
-                    title: stock.title,
-                    price: stock.price,
-                    change: stock.change,
-                    isPositive: stock.isPositive
-                )
+                    return cell
+                }
 
-                return cell
+                else if indexPath.item == 1 {
 
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: "WatchlistSortCell",
+                        for: indexPath
+                    ) as! WatchlistSortCell
+
+                    return cell
+                }
+
+                else {
+
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: "WatchlistStockCell",
+                        for: indexPath
+                    ) as! WatchlistStockCell
+
+                    let stock = watchlistStocks[indexPath.item - 2]
+                    cell.configure(stock: stock)
+
+                    return cell
+                }
             case .orders:
 
                 let cell = collectionView.dequeueReusableCell(
@@ -278,6 +332,36 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 for: indexPath
             ) as! ProductsToolsSectionCell
 
+    
+        case 5:
+
+            if indexPath.item == 0 {
+
+                let headerCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier:"TopMoversHeaderCell",
+                    for:indexPath
+                ) as! TopMoversHeaderCell
+
+                headerCell.onFilterChange = { [weak self] type in
+                    self?.topMoversCardsCell?.updateStocks(type: type)
+                }
+
+                return headerCell
+            }
+
+            else {
+
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier:"TopMoversCardsCell",
+                    for:indexPath
+                ) as! TopMoversCardsCell
+
+                topMoversCardsCell = cell
+
+                return cell
+            }
+            
+            
         default:
             return UICollectionViewCell()
         }
@@ -302,7 +386,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
             switch selectedTab {
 
-            case .explore, .watchlist:
+            case .explore:
 
                 let padding: CGFloat = 16 * 3
                 let availableWidth = collectionView.frame.width - padding
@@ -324,6 +408,20 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 }
             case .orders:
                 return CGSize(width: collectionView.frame.width, height: 300)
+             
+            case .watchlist:
+
+                if indexPath.item == 0 {
+                    return CGSize(width: collectionView.frame.width, height: 60)
+                }
+
+                else if indexPath.item == 1 {
+                    return CGSize(width: collectionView.frame.width, height: 40)
+                }
+
+                else {
+                    return CGSize(width: collectionView.frame.width, height: 80)
+                }
                 
             default:
                 return .zero
@@ -332,6 +430,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         case 4:
             return CGSize(width: collectionView.frame.width, height: 200)
 
+        case 5:
+
+            if indexPath.item == 0 {
+                return CGSize(width: collectionView.frame.width, height: 110)
+            }
+
+            else {
+                return CGSize(width: collectionView.frame.width, height: 370)
+            }
+            
+            
         default:
             return .zero
         }
