@@ -7,8 +7,7 @@
 
 import UIKit
 
-import UIKit
-
+ 
 class MostBougthStock: UICollectionViewCell {
 
     @IBOutlet weak var containerView: UIView!
@@ -16,26 +15,33 @@ class MostBougthStock: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
-
     override func awakeFromNib() {
-        super.awakeFromNib()
+           super.awakeFromNib()
 
-        // Dark card styling
-        containerView.layer.cornerRadius = 16
-        containerView.clipsToBounds = true
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor.gray.cgColor
-    }
+           // Card styling
+           containerView.layer.cornerRadius = 16
+           containerView.clipsToBounds = true
+           containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = UIColor.lightGray.cgColor
 
-    func configure(title: String,
-                   price: String,
-                   change: String,
-                   isPositive: Bool) {
+           // Logo styling
+           logoImageView.contentMode = .scaleAspectFit
+       }
 
-        titleLabel.text = title
-        priceLabel.text = price
-        changeLabel.text = change
+       // MARK: Configure Cell
+       func configure(title: String,
+                      price: String,
+                      change: String,
+                      logo: String,
+                      isPositive: Bool) {
 
-        changeLabel.textColor = isPositive ? .systemGreen : .systemRed
-    }
-}
+           titleLabel.text = title
+           priceLabel.text = price
+           changeLabel.text = change
+
+           // Load image from Assets
+           logoImageView.image = UIImage(named: logo)
+
+           changeLabel.textColor = isPositive ? .systemGreen : .systemRed
+       }
+   }

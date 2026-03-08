@@ -53,9 +53,27 @@ class ViewController: UIViewController  {
     var selectedTab: StockTab = .explore
   
     let stocks: [Stock] = [
-        Stock(title: "Tejas Networks", price: "₹485.60", change: "+49.75 (11.41%)", isPositive: true),
-        Stock(title: "Tata Silver ETF", price: "₹27.84", change: "+2.19 (8.54%)", isPositive: true),
-        Stock(title: "Tata Gold ETF", price: "₹16.20", change: "+0.80 (5.19%)", isPositive: true)
+
+        Stock(
+            title: "Tejas Networks",
+            price: "₹485.60",
+            change: "+49.75 (11.41%)",
+            image: "ICICI"
+        ),
+
+        Stock(
+            title: "Tata Silver ETF",
+            price: "₹27.84",
+            change: "+2.19 (8.54%)",
+            image: "hcl"
+        ),
+
+        Stock(
+            title: "Tata Gold ETF",
+            price: "₹16.20",
+            change: "+0.80 (5.19%)",
+            image: "gold"
+        )
     ]
     @IBOutlet weak var collectionView: UICollectionView!
     var topMoversCardsCell: TopMoversCardsCell?
@@ -217,10 +235,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             case .explore:
 
                 if indexPath.item == 3 {
-                    return collectionView.dequeueReusableCell(
+                    let cell = collectionView.dequeueReusableCell(
                         withReuseIdentifier: "CustomFourthCardCell",
                         for: indexPath
                     ) as! CustomFourthCardCell
+
+                    cell.configure()
+
+                    return cell
                 }
 
                 let cell = collectionView.dequeueReusableCell(
@@ -232,13 +254,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
                 cell.configure(
                     title: stock.title,
-                    price: stock.price,
+                    price: "₹\(stock.price)",
                     change: stock.change,
-                    isPositive: stock.isPositive
+                    logo: stock.image,
+                    isPositive: stock.change.contains("+")
                 )
 
                 return cell
-
   
       
             case .positions:
@@ -270,12 +292,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 let holding = holdings[indexPath.item]
 
                 cell.configure(
-                    title: holding.title,
-                    price: holding.price,
-                    change: holding.change,
-                    isPositive: holding.isPositive
+                    title: "ETF",
+                    price: "₹499.55",
+                    change: "+14 (3.08%)",
+                    logo: "ETF",
+                    isPositive: true
                 )
-
                 return cell
        
             case .watchlist:
@@ -367,6 +389,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         }
     }
 
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -446,9 +469,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         }
     }
 }
+
 struct Stock {
     let title: String
     let price: String
     let change: String
-    let isPositive: Bool
+    let image: String
 }

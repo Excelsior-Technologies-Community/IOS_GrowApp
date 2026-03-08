@@ -135,6 +135,7 @@ UICollectionViewDelegateFlowLayout {
                 for: indexPath
             ) as! CustomFourthCardCell
 
+            cell.configure()
             return cell
         }
 

@@ -12,55 +12,55 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TopMoversHeaderCell" customModule="GrowApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="113"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="113"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unz-od-hsH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="113"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEM-V4-GsZ">
-                                <rect key="frame" x="16.000000000000004" y="16" width="41.333333333333343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top movers today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEM-V4-GsZ">
+                                <rect key="frame" x="16" y="0.0" width="135.33333333333334" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wTT-uF-uGH">
-                                <rect key="frame" x="16" y="53" width="361" height="40"/>
+                                <rect key="frame" x="16" y="45" width="307" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmd-UI-pK1">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Jcx-Gu-nfU"/>
-                                            <constraint firstAttribute="width" constant="100" id="YJE-z8-6QQ"/>
+                                            <constraint firstAttribute="height" constant="35" id="Jcx-Gu-nfU"/>
+                                            <constraint firstAttribute="width" constant="90" id="YJE-z8-6QQ"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Gainers">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="gainersTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="x3i-Zp-s0b"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xl1-5D-23d">
-                                        <rect key="frame" x="112" y="0.0" width="84" height="40"/>
+                                        <rect key="frame" x="102" y="0.0" width="70" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="GmP-dR-kgz"/>
+                                            <constraint firstAttribute="height" constant="35" id="GmP-dR-kgz"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Loser">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="losersTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="rNN-3a-bcR"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCX-Mo-lle">
-                                        <rect key="frame" x="208" y="7.6666666666666643" width="1" height="25"/>
+                                        <rect key="frame" x="184" y="5" width="1" height="25"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="3FU-dy-PCG"/>
@@ -68,15 +68,15 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msw-Ep-xx3">
-                                        <rect key="frame" x="221" y="0.0" width="140" height="40"/>
+                                        <rect key="frame" x="197" y="0.0" width="110" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="3gN-2y-9af"/>
-                                            <constraint firstAttribute="width" constant="140" id="TD7-8u-4hG"/>
+                                            <constraint firstAttribute="height" constant="35" id="3gN-2y-9af"/>
+                                            <constraint firstAttribute="width" constant="110" id="TD7-8u-4hG"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="arrow.up.and.down" catalog="system" title="Large cap">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="Caps:" destination="gTV-IL-0wX" eventType="touchUpInside" id="FgU-xu-Z4i"/>
@@ -84,16 +84,16 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="CDX-qw-Wik"/>
+                                    <constraint firstAttribute="height" constant="35" id="CDX-qw-Wik"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yEM-V4-GsZ" firstAttribute="top" secondItem="unz-od-hsH" secondAttribute="top" constant="16" id="8gL-t6-eSv"/>
+                            <constraint firstItem="yEM-V4-GsZ" firstAttribute="top" secondItem="unz-od-hsH" secondAttribute="top" id="8gL-t6-eSv"/>
                             <constraint firstItem="yEM-V4-GsZ" firstAttribute="leading" secondItem="unz-od-hsH" secondAttribute="leading" constant="16" id="B0Y-Dk-1oS"/>
-                            <constraint firstAttribute="trailing" secondItem="wTT-uF-uGH" secondAttribute="trailing" constant="16" id="ERQ-Qi-8Pn"/>
-                            <constraint firstItem="wTT-uF-uGH" firstAttribute="top" secondItem="yEM-V4-GsZ" secondAttribute="bottom" constant="16" id="FnR-eL-Eom"/>
+                            <constraint firstAttribute="trailing" secondItem="wTT-uF-uGH" secondAttribute="trailing" constant="70" id="ERQ-Qi-8Pn"/>
+                            <constraint firstItem="wTT-uF-uGH" firstAttribute="top" secondItem="yEM-V4-GsZ" secondAttribute="bottom" constant="13" id="FnR-eL-Eom"/>
                             <constraint firstItem="wTT-uF-uGH" firstAttribute="leading" secondItem="unz-od-hsH" secondAttribute="leading" constant="16" id="PtM-RO-JTi"/>
                             <constraint firstAttribute="bottom" secondItem="wTT-uF-uGH" secondAttribute="bottom" constant="20" id="dXF-6G-h3d"/>
                         </constraints>
@@ -107,20 +107,17 @@
                 <constraint firstAttribute="trailing" secondItem="unz-od-hsH" secondAttribute="trailing" id="a9a-ee-nDG"/>
                 <constraint firstItem="unz-od-hsH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f4s-N4-YP6"/>
             </constraints>
-            <size key="customSize" width="393" height="113"/>
+            <size key="customSize" width="393" height="100"/>
             <connections>
                 <outlet property="capButton" destination="Msw-Ep-xx3" id="hbU-hj-3fn"/>
                 <outlet property="gainersButton" destination="Cmd-UI-pK1" id="r4J-dm-s7a"/>
                 <outlet property="losersButton" destination="Xl1-5D-23d" id="R4K-1f-0O7"/>
             </connections>
-            <point key="canvasLocation" x="17.557251908396946" y="10.91549295774648"/>
+            <point key="canvasLocation" x="17.557251908396946" y="6.3380281690140849"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="arrow.up.and.down" catalog="system" width="98" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
