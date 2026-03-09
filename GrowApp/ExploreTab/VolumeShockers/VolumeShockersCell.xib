@@ -12,32 +12,32 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="VolumeShockersCell" customModule="GrowApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="369"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="409"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="369"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="409"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VG-va-MWZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="369"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="409"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume Shockers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDB-A8-UKb">
                                 <rect key="frame" x="5" y="4.9999999999999982" width="378" height="26.333333333333329"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stock trading above their weekly avg volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9V-hd-UNI">
                                 <rect key="frame" x="8" y="39.333333333333336" width="375" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.27843137254901962" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ua-mr-4qs">
-                                <rect key="frame" x="16" y="73.333333333333343" width="361" height="295.66666666666663"/>
+                                <rect key="frame" x="16" y="73.333333333333343" width="361" height="335.66666666666663"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-Aw-wV5">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="295.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="290.66666666666669"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6SM-eM-CV3">
                                             <size key="itemSize" width="128" height="128"/>
@@ -46,13 +46,39 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                     </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtA-IC-lGY">
+                                        <rect key="frame" x="0.0" y="290.66666666666669" width="361" height="45"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-48-Ovg">
+                                                <rect key="frame" x="141.66666666666666" y="11.666666666666687" width="78" height="21.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LYS-jz-abs">
+                                                <rect key="frame" x="229.66666666666666" y="14.333333333333313" width="12.666666666666657" height="16.666666666666664"/>
+                                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="LYS-jz-abs" firstAttribute="centerY" secondItem="trZ-48-Ovg" secondAttribute="centerY" id="Mbl-NU-5m2"/>
+                                            <constraint firstItem="LYS-jz-abs" firstAttribute="leading" secondItem="trZ-48-Ovg" secondAttribute="trailing" constant="10" id="YyB-QK-wkb"/>
+                                            <constraint firstItem="trZ-48-Ovg" firstAttribute="centerY" secondItem="YtA-IC-lGY" secondAttribute="centerY" id="pIu-Fd-L5X"/>
+                                            <constraint firstItem="trZ-48-Ovg" firstAttribute="centerX" secondItem="YtA-IC-lGY" secondAttribute="centerX" id="xyi-kb-OQQ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Whh-Aw-wV5" secondAttribute="trailing" id="8UX-yF-N77"/>
+                                    <constraint firstAttribute="bottom" secondItem="YtA-IC-lGY" secondAttribute="bottom" id="Ccj-Jo-oEa"/>
+                                    <constraint firstItem="YtA-IC-lGY" firstAttribute="top" secondItem="Whh-Aw-wV5" secondAttribute="bottom" id="Gq3-EH-58k"/>
                                     <constraint firstItem="Whh-Aw-wV5" firstAttribute="leading" secondItem="0Ua-mr-4qs" secondAttribute="leading" id="Nj3-5x-CH1"/>
+                                    <constraint firstItem="YtA-IC-lGY" firstAttribute="leading" secondItem="0Ua-mr-4qs" secondAttribute="leading" id="PHb-kk-O8Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="YtA-IC-lGY" secondAttribute="trailing" id="aMA-aB-B8P"/>
                                     <constraint firstItem="Whh-Aw-wV5" firstAttribute="top" secondItem="0Ua-mr-4qs" secondAttribute="top" id="lxu-Ut-cQY"/>
-                                    <constraint firstAttribute="bottom" secondItem="Whh-Aw-wV5" secondAttribute="bottom" id="t4T-py-82T"/>
+                                    <constraint firstAttribute="bottom" secondItem="Whh-Aw-wV5" secondAttribute="bottom" constant="45" id="t4T-py-82T"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -81,13 +107,15 @@
             </constraints>
             <size key="customSize" width="393" height="369"/>
             <connections>
-                <outlet property="CollectionViewUi" destination="0Ua-mr-4qs" id="Fhd-8F-Qr6"/>
+                <outlet property="CollectionViewUi" destination="Whh-Aw-wV5" id="RX9-um-0dr"/>
+                <outlet property="SeeMoreView" destination="YtA-IC-lGY" id="QZB-gz-r6d"/>
                 <outlet property="collectionView" destination="Whh-Aw-wV5" id="1rp-K0-4ou"/>
             </connections>
             <point key="canvasLocation" x="129.00763358778624" y="99.647887323943664"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

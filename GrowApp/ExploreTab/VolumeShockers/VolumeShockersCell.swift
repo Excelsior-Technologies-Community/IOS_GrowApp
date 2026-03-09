@@ -21,6 +21,7 @@ UICollectionViewDelegate,
 UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var SeeMoreView: UIView!
     @IBOutlet weak var CollectionViewUi: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -52,6 +53,12 @@ UICollectionViewDelegateFlowLayout {
             change: "+753%",
             volume: "95,441",
             logo: "Jindal"
+        ),
+        VolumeStock(
+            name: "ICICI",
+            change: "+6,716%",
+            volume: "1,19,992",
+            logo: "ICICI"
         )
     ]
 
@@ -61,46 +68,56 @@ UICollectionViewDelegateFlowLayout {
         collectionView.delegate = self
         collectionView.dataSource = self
 
-        
+        SeeMoreView.layer.borderColor = UIColor.lightGray.cgColor
+        SeeMoreView.layer.borderWidth = 0.5
+
+        SeeMoreView.layer.cornerRadius = 15
+        SeeMoreView.layer.maskedCorners = [
+            .layerMinXMaxYCorner,
+            .layerMaxXMaxYCorner
+        ]
+        SeeMoreView.clipsToBounds = true
         CollectionViewUi.layer.cornerRadius = 15
+        CollectionViewUi.layer.maskedCorners = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner
+        ]
+        
+        
         CollectionViewUi.layer.borderColor = UIColor.lightGray.cgColor
-        CollectionViewUi.layer.borderWidth = 0.8
+        CollectionViewUi.layer.borderWidth = 0.5
+        CollectionViewUi.clipsToBounds = true
         collectionView.register(
             UINib(nibName: "VolumeShockItemCell", bundle: nil),
             forCellWithReuseIdentifier: "VolumeShockItemCell"
         )
     }
-
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-
         return stocks.count
     }
-
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "VolumeShockItemCell",
             for: indexPath
         ) as! VolumeShockItemCell
-
         let stock = stocks[indexPath.item]
-
         cell.configure(
             name: stock.name,
             change: stock.change,
             volume: stock.volume,
             logo: stock.logo
         )
-
         return cell
     }
-
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: collectionView.frame.width, height: 72)
+ 
+        return CGSize(width: collectionView.frame.width, height: 72.5)
     }
 }
