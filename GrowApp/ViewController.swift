@@ -72,7 +72,7 @@ class ViewController: UIViewController  {
             title: "Tata Gold ETF",
             price: "₹16.20",
             change: "+0.80 (5.19%)",
-            image: "gold"
+            image: "HDFC"
         )
     ]
     @IBOutlet weak var collectionView: UICollectionView!
@@ -94,6 +94,10 @@ class ViewController: UIViewController  {
         collectionView.register(
             UINib(nibName: "ProductsToolsSectionCell", bundle: nil),
             forCellWithReuseIdentifier: "ProductsToolsSectionCell"
+        )
+        collectionView.register(
+            UINib(nibName: "VolumeShockersCell", bundle: nil),
+            forCellWithReuseIdentifier: "VolumeShockersCell"
         )
         collectionView.register(
             UINib(nibName: "TabBarSectionCell", bundle: nil),
@@ -138,7 +142,7 @@ class ViewController: UIViewController  {
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 6
+        return 7
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -147,14 +151,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         switch section {
 
         case 0:
-            return 1   // Header
+            return 1
 
         case 1:
-            
             return 1
 
         case 2:
-            return 1   // TabBar
+            return 1
 
         case 3:
 
@@ -164,7 +167,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 return min(stocks.count, 3) + 1
 
             case .positions:
-                return 1   // important
+                return 1
 
             case .holdings:
                 return holdings.isEmpty ? 1 : holdings.count
@@ -173,19 +176,21 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 return watchlistStocks.count + 2
 
             case .orders:
-                   return 1
-                
+                return 1
+
             default:
                 return 0
             }
+
         case 4:
-            // Products section only in Explore
             return selectedTab == .explore ? 1 : 0
 
         case 5:
-              return 2
-            
-            
+            return 2
+
+        case 6:
+            return selectedTab == .explore ? 1 : 0   
+
         default:
             return 0
         }
@@ -384,6 +389,15 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             }
             
             
+        case 6:
+
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "VolumeShockersCell",
+            for: indexPath
+        ) as! VolumeShockersCell
+
+        return cell
+            
         default:
             return UICollectionViewCell()
         }
@@ -456,13 +470,16 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         case 5:
 
             if indexPath.item == 0 {
-                return CGSize(width: collectionView.frame.width, height: 110)
+                return CGSize(width: collectionView.frame.width, height: 100)
             }
 
             else {
-                return CGSize(width: collectionView.frame.width, height: 370)
+                return CGSize(width: collectionView.frame.width, height: 400)
             }
             
+       
+        case 6:
+        return CGSize(width: collectionView.frame.width, height: 400)
             
         default:
             return .zero
