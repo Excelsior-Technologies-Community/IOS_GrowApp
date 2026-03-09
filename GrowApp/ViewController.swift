@@ -92,6 +92,10 @@ class ViewController: UIViewController  {
             forCellWithReuseIdentifier: "OrdersEmptyCell"
         )
         collectionView.register(
+            UINib(nibName: "TradingScreensCell", bundle: nil),
+            forCellWithReuseIdentifier: "TradingScreensCell"
+        )
+        collectionView.register(
             UINib(nibName: "ProductsToolsSectionCell", bundle: nil),
             forCellWithReuseIdentifier: "ProductsToolsSectionCell"
         )
@@ -138,12 +142,15 @@ class ViewController: UIViewController  {
 
 
 }
-
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - Sections
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 7
+        return 8
     }
+
+    // MARK: - Items Count
 
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -151,13 +158,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         switch section {
 
         case 0:
-            return 1
+            return 1   // Top Header
 
         case 1:
-            return 1
+            return 1   // Ticker
 
         case 2:
-            return 1
+            return 1   // Tab Bar
 
         case 3:
 
@@ -183,36 +190,44 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             }
 
         case 4:
-            return selectedTab == .explore ? 1 : 0
+            return selectedTab == .explore ? 1 : 0   // Products section
 
         case 5:
-            return 2
+            return 2   // Top Movers
 
         case 6:
-            return selectedTab == .explore ? 1 : 0   
+            return selectedTab == .explore ? 1 : 0   // Volume Shockers
+
+        case 7:
+            return selectedTab == .explore ? 1 : 0   // Trading Screens
 
         default:
             return 0
         }
     }
 
+    // MARK: - Cell Setup
+
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         switch indexPath.section {
 
+        // Header
         case 0:
             return collectionView.dequeueReusableCell(
                 withReuseIdentifier: "TopHeaderCell",
                 for: indexPath
             ) as! TopHeaderCell
 
+        // Ticker
         case 1:
             return collectionView.dequeueReusableCell(
                 withReuseIdentifier: "TickerSectionCell",
                 for: indexPath
             ) as! TickerSectionCell
 
+        // Tab Bar
         case 2:
 
             let cell = collectionView.dequeueReusableCell(
@@ -226,13 +241,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 guard let self = self else { return }
 
                 self.selectedTab = tab
-
-                // reload sections affected by tab change
-                self.collectionView.reloadSections(IndexSet([1,3,4]))
+                self.collectionView.reloadSections(IndexSet([1,3,4,5,6,7]))
             }
 
             return cell
 
+        // Most Bought Stocks
         case 3:
 
             switch selectedTab {
@@ -240,13 +254,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             case .explore:
 
                 if indexPath.item == 3 {
+
                     let cell = collectionView.dequeueReusableCell(
                         withReuseIdentifier: "CustomFourthCardCell",
                         for: indexPath
                     ) as! CustomFourthCardCell
 
                     cell.configure()
-
                     return cell
                 }
 
@@ -266,35 +280,28 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 )
 
                 return cell
-  
-      
+
             case .positions:
 
-                let cell = collectionView.dequeueReusableCell(
+                return collectionView.dequeueReusableCell(
                     withReuseIdentifier: "PositionsEmptyCell",
                     for: indexPath
                 ) as! PositionsEmptyCell
 
-                return cell
-                
             case .holdings:
 
                 if holdings.isEmpty {
 
-                    let cell = collectionView.dequeueReusableCell(
+                    return collectionView.dequeueReusableCell(
                         withReuseIdentifier: "HoldingsCell",
                         for: indexPath
                     ) as! HoldingsCell
-
-                    return cell
                 }
 
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: "MostBougthStock",
                     for: indexPath
                 ) as! MostBougthStock
-
-                let holding = holdings[indexPath.item]
 
                 cell.configure(
                     title: "ETF",
@@ -303,55 +310,49 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                     logo: "ETF",
                     isPositive: true
                 )
+
                 return cell
-       
+
             case .watchlist:
 
                 if indexPath.item == 0 {
 
-                    let cell = collectionView.dequeueReusableCell(
+                    return collectionView.dequeueReusableCell(
                         withReuseIdentifier: "WatchlistHeaderCell",
                         for: indexPath
                     ) as! WatchlistHeaderCell
-
-                    return cell
                 }
 
-                else if indexPath.item == 1 {
+                if indexPath.item == 1 {
 
-                    let cell = collectionView.dequeueReusableCell(
+                    return collectionView.dequeueReusableCell(
                         withReuseIdentifier: "WatchlistSortCell",
                         for: indexPath
                     ) as! WatchlistSortCell
-
-                    return cell
                 }
-
-                else {
-
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: "WatchlistStockCell",
-                        for: indexPath
-                    ) as! WatchlistStockCell
-
-                    let stock = watchlistStocks[indexPath.item - 2]
-                    cell.configure(stock: stock)
-
-                    return cell
-                }
-            case .orders:
 
                 let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "WatchlistStockCell",
+                    for: indexPath
+                ) as! WatchlistStockCell
+
+                let stock = watchlistStocks[indexPath.item - 2]
+                cell.configure(stock: stock)
+
+                return cell
+
+            case .orders:
+
+                return collectionView.dequeueReusableCell(
                     withReuseIdentifier: "OrdersEmptyCell",
                     for: indexPath
                 ) as! OrdersEmptyCell
 
-                return cell
-                
             default:
                 return UICollectionViewCell()
             }
 
+        // Products
         case 4:
 
             return collectionView.dequeueReusableCell(
@@ -359,7 +360,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 for: indexPath
             ) as! ProductsToolsSectionCell
 
-    
+        // Top Movers
         case 5:
 
             if indexPath.item == 0 {
@@ -376,47 +377,45 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 return headerCell
             }
 
-            else {
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier:"TopMoversCardsCell",
+                for:indexPath
+            ) as! TopMoversCardsCell
 
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier:"TopMoversCardsCell",
-                    for:indexPath
-                ) as! TopMoversCardsCell
+            topMoversCardsCell = cell
 
-                topMoversCardsCell = cell
+            return cell
 
-                return cell
-            }
-            
-            
+        // Volume Shockers
         case 6:
 
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "VolumeShockersCell",
-            for: indexPath
-        ) as! VolumeShockersCell
+            return collectionView.dequeueReusableCell(
+                withReuseIdentifier: "VolumeShockersCell",
+                for: indexPath
+            ) as! VolumeShockersCell
 
-        return cell
-            
+        // Trading Screens
+        case 7:
+
+            return collectionView.dequeueReusableCell(
+                withReuseIdentifier: "TradingScreensCell",
+                for: indexPath
+            ) as! TradingScreensCell
+
         default:
             return UICollectionViewCell()
         }
     }
 
-    
+    // MARK: - Cell Sizes
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         switch indexPath.section {
 
-        case 0:
-            return CGSize(width: collectionView.frame.width, height: 50)
-
-        case 1:
-            return CGSize(width: collectionView.frame.width, height: 50)
-
-        case 2:
+        case 0,1,2:
             return CGSize(width: collectionView.frame.width, height: 50)
 
         case 3:
@@ -426,40 +425,32 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             case .explore:
 
                 let padding: CGFloat = 16 * 3
-                let availableWidth = collectionView.frame.width - padding
-                let width = availableWidth / 2
+                let width = (collectionView.frame.width - padding) / 2
 
                 return CGSize(width: width, height: 175)
 
-           
             case .positions:
                 return CGSize(width: collectionView.frame.width, height: 850)
-            case .holdings:
 
-                if holdings.isEmpty {
-                    // Empty holdings UI
-                    return CGSize(width: collectionView.frame.width, height: 520)
-                } else {
-                    // Holdings list
-                    return CGSize(width: collectionView.frame.width, height: 100)
-                }
+            case .holdings:
+                return CGSize(width: collectionView.frame.width,
+                              height: holdings.isEmpty ? 520 : 100)
+
             case .orders:
                 return CGSize(width: collectionView.frame.width, height: 300)
-             
+
             case .watchlist:
 
                 if indexPath.item == 0 {
                     return CGSize(width: collectionView.frame.width, height: 60)
                 }
 
-                else if indexPath.item == 1 {
+                if indexPath.item == 1 {
                     return CGSize(width: collectionView.frame.width, height: 40)
                 }
 
-                else {
-                    return CGSize(width: collectionView.frame.width, height: 80)
-                }
-                
+                return CGSize(width: collectionView.frame.width, height: 80)
+
             default:
                 return .zero
             }
@@ -473,14 +464,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 return CGSize(width: collectionView.frame.width, height: 100)
             }
 
-            else {
-                return CGSize(width: collectionView.frame.width, height: 400)
-            }
-            
-       
+            return CGSize(width: collectionView.frame.width, height: 400)
+
         case 6:
-        return CGSize(width: collectionView.frame.width, height: 480)
-            
+            return CGSize(width: collectionView.frame.width, height: 480)
+
+        case 7:
+            return CGSize(width: collectionView.frame.width, height: 520)
+
         default:
             return .zero
         }
