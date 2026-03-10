@@ -470,7 +470,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             return CGSize(width: collectionView.frame.width, height: 480)
 
         case 7:
-            return CGSize(width: collectionView.frame.width, height: 520)
+            return CGSize(width: collectionView.frame.width, height: 437)
 
         default:
             return .zero
