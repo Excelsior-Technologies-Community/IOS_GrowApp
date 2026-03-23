@@ -101,7 +101,7 @@ UICollectionViewDelegateFlowLayout {
         let availableWidth = collectionView.frame.width - padding
         let width = availableWidth / 2
 
-        return CGSize(width: width, height: 190)
+        return CGSize(width: width, height: 160)
     }
 
     func collectionView(_ collectionView: UICollectionView,

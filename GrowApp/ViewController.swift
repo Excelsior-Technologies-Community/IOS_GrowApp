@@ -493,7 +493,7 @@ extension ViewController: UICollectionViewDataSource,
                 let padding: CGFloat = 16 * 3
                 let width = (collectionView.frame.width - padding) / 2
 
-                return CGSize(width: width, height: 175)
+                return CGSize(width: width, height: 160)
 
             case .positions:
                 return CGSize(width: collectionView.frame.width, height: 850)
@@ -531,7 +531,7 @@ extension ViewController: UICollectionViewDataSource,
                 return CGSize(width: collectionView.frame.width, height: 100)
             }
 
-            return CGSize(width: collectionView.frame.width, height: 400)
+            return CGSize(width: collectionView.frame.width, height: 340)
 
 
         case 6:
