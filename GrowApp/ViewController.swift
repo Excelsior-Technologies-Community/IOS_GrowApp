@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 enum StockTab {
     case explore
     case holdings
@@ -129,7 +130,6 @@ class ViewController: UIViewController  {
              UINib(nibName: "WatchlistHeaderCell", bundle: nil),
              forCellWithReuseIdentifier: "WatchlistHeaderCell"
          )
-
          collectionView.register(
              UINib(nibName: "WatchlistSortCell", bundle: nil),
              forCellWithReuseIdentifier: "WatchlistSortCell"
@@ -149,10 +149,7 @@ class ViewController: UIViewController  {
             forCellWithReuseIdentifier: "TopMoversCardsCell"
         )
     }
-
-
 }
-
 extension ViewController: UICollectionViewDataSource,
                           UICollectionViewDelegate,
                           UICollectionViewDelegateFlowLayout {
@@ -162,7 +159,16 @@ extension ViewController: UICollectionViewDataSource,
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 9
     }
+    func collectionView(_ collectionView: UICollectionView,
+                       layout collectionViewLayout: UICollectionViewLayout,
+                       insetForSectionAt section: Int) -> UIEdgeInsets {
 
+        if section == 3 && selectedTab == .explore {
+            return UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
+        }
+
+        return .zero
+    }
     // MARK: - Items Count
 
     func collectionView(_ collectionView: UICollectionView,
@@ -171,18 +177,17 @@ extension ViewController: UICollectionViewDataSource,
         switch section {
 
         case 0:
-            return 1   // Header
+            return 1
 
         case 1:
-            return 1   // Ticker
+            return 1
 
         case 2:
-            return 1   // TabBar
+            return 1
 
         case 3:
-
+            
             switch selectedTab {
-
             case .explore:
                 return min(stocks.count, 3) + 2
 
@@ -465,7 +470,6 @@ extension ViewController: UICollectionViewDataSource,
         }
     }
 
-
     // MARK: Cell Sizes
 
     func collectionView(_ collectionView: UICollectionView,
@@ -482,19 +486,23 @@ extension ViewController: UICollectionViewDataSource,
 
             switch selectedTab {
 
+    
             case .explore:
 
-                // HEADER CELL
                 if indexPath.item == 0 {
                     return CGSize(width: collectionView.frame.width, height: 40)
                 }
 
-                // CARD WIDTH CALCULATION
-                let padding: CGFloat = 16 * 3
-                let width = (collectionView.frame.width - padding) / 2
+                let leftRightInset: CGFloat = 4 + 4
+                let spacing: CGFloat = 16
+
+                let totalPadding = leftRightInset + spacing
+                let width = (collectionView.frame.width - totalPadding) / 2
 
                 return CGSize(width: width, height: 160)
-
+                
+                
+                
             case .positions:
                 return CGSize(width: collectionView.frame.width, height: 850)
 
@@ -531,7 +539,7 @@ extension ViewController: UICollectionViewDataSource,
                 return CGSize(width: collectionView.frame.width, height: 100)
             }
 
-            return CGSize(width: collectionView.frame.width, height: 340)
+            return CGSize(width: collectionView.frame.width, height: 380)
 
 
         case 6:
@@ -539,7 +547,7 @@ extension ViewController: UICollectionViewDataSource,
 
 
         case 7:
-            return CGSize(width: collectionView.frame.width, height: 437)
+            return CGSize(width: collectionView.frame.width, height: 457)
 
 
         case 8:

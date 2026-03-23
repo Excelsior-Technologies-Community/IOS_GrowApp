@@ -92,29 +92,44 @@ UICollectionViewDelegateFlowLayout {
                         numberOfItemsInSection section: Int) -> Int {
         return 4
     }
+    // MARK: - Layout (MATCH MostBougthStock EXACTLY)
+
+    func collectionView(_ collectionView: UICollectionView,
+                       layout collectionViewLayout: UICollectionViewLayout,
+                       insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 8)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                       layout collectionViewLayout: UICollectionViewLayout,
+                       minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 4   // 🔥 SAME as MostBougthStock
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                       layout collectionViewLayout: UICollectionViewLayout,
+                       minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 16
+    }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let padding: CGFloat = 16 + 16 + 12
-        let availableWidth = collectionView.frame.width - padding
-        let width = availableWidth / 2
+        let leftRightInset: CGFloat = 4 + 4
+        let spacing: CGFloat = 17
+
+        let totalPadding = leftRightInset + spacing
+        let width = (collectionView.frame.width - totalPadding) / 2 - 2
 
         return CGSize(width: width, height: 160)
     }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 12
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    }
+    
+    // MARK: - Layout
+  
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -83,7 +83,7 @@ UICollectionViewDelegateFlowLayout {
             .layerMaxXMinYCorner
         ]
         
-        
+        collectionView.isScrollEnabled = false   
         CollectionViewUi.layer.borderColor = UIColor.lightGray.cgColor
         CollectionViewUi.layer.borderWidth = 0.5
         CollectionViewUi.clipsToBounds = true
