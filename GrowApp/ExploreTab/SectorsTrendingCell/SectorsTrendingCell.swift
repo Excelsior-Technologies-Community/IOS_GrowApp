@@ -43,7 +43,7 @@ UICollectionViewDelegateFlowLayout {
         )
 
         containerView.layer.cornerRadius = 16
-        containerView.layer.borderWidth = 0.6
+        containerView.layer.borderWidth = 0.4
         containerView.layer.borderColor = UIColor.lightGray.cgColor
 
         containerView.layer.maskedCorners = [
@@ -51,7 +51,7 @@ UICollectionViewDelegateFlowLayout {
             .layerMaxXMinYCorner
         ]
         seeAllView.layer.cornerRadius = 16
-        seeAllView.layer.borderWidth = 0.6
+        seeAllView.layer.borderWidth = 0.4
         seeAllView.layer.borderColor = UIColor.lightGray.cgColor
         seeAllView.layer.maskedCorners = [
             .layerMinXMaxYCorner,

@@ -90,18 +90,18 @@ UICollectionViewDelegateFlowLayout {
         let padding: CGFloat = 12
         let width = (collectionView.frame.width - padding) / 2
 
-        return CGSize(width: width, height: 155)
+        return CGSize(width: width, height: 152)
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
+        return 8
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 8
     }
 }
