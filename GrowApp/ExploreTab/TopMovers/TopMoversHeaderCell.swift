@@ -24,14 +24,22 @@ class TopMoversHeaderCell: UICollectionViewCell {
     @IBOutlet weak var gainersButton: UIButton!
     @IBOutlet weak var losersButton: UIButton!
     @IBOutlet weak var capButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         [gainersButton, losersButton, capButton].forEach {
             $0?.layer.cornerRadius = 20
             $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor.lightGray.cgColor
         }
+        capButton.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        capButton.titleLabel?.numberOfLines = 1
+        capButton.titleLabel?.lineBreakMode = .byTruncatingTail
+        capButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        capButton.titleLabel?.minimumScaleFactor = 0.8
+        
+//        capButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
 
         updateButtonStyles(selected: gainersButton)
     }

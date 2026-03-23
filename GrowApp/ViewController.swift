@@ -47,7 +47,7 @@ class ViewController: UIViewController  {
         WatchlistStock(name: "Vedanta", price: "₹733.05", change: "+32.05 (4.57%)"),
         WatchlistStock(name: "Tata Steel", price: "₹201.75", change: "+5.02 (2.55%)"),
         WatchlistStock(name: "NTPC", price: "₹376.95", change: "+11.15 (3.05%)"),
-        WatchlistStock(name: "Eternal (Zomato)", price: "₹234.91", change: "-5.82 (2.42%)"),
+        WatchlistStock(name: "Eternal", price: "₹234.91", change: "-5.82 (2.42%)"),
         WatchlistStock(name: "PNB", price: "₹122.30", change: "+0.93 (0.77%)")
     ]
     var selectedTab: StockTab = .explore
@@ -80,9 +80,15 @@ class ViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(
+            UINib(nibName: "MostBoughtHeaderCell", bundle: nil),
+            forCellWithReuseIdentifier: "MostBoughtHeaderCell"
+        )
         collectionView.register(UINib(nibName: "PositionsEmptyCell", bundle: nil), forCellWithReuseIdentifier: "PositionsEmptyCell")
         collectionView.register(UINib(nibName: "MostBougthStock", bundle: nil), forCellWithReuseIdentifier: "MostBougthStock")
         collectionView.register(UINib(nibName: "TopHeaderCell", bundle: nil), forCellWithReuseIdentifier: "TopHeaderCell")
@@ -90,6 +96,10 @@ class ViewController: UIViewController  {
         collectionView.register(
             UINib(nibName: "OrdersEmptyCell", bundle: nil),
             forCellWithReuseIdentifier: "OrdersEmptyCell"
+        )
+        collectionView.register(
+            UINib(nibName: "SectorsTrendingCell", bundle: nil),
+            forCellWithReuseIdentifier: "SectorsTrendingCell"
         )
         collectionView.register(
             UINib(nibName: "TradingScreensCell", bundle: nil),
@@ -142,12 +152,15 @@ class ViewController: UIViewController  {
 
 
 }
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
+extension ViewController: UICollectionViewDataSource,
+                          UICollectionViewDelegate,
+                          UICollectionViewDelegateFlowLayout {
 
     // MARK: - Sections
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 8
+        return 9
     }
 
     // MARK: - Items Count
@@ -158,20 +171,20 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         switch section {
 
         case 0:
-            return 1   // Top Header
+            return 1   // Header
 
         case 1:
             return 1   // Ticker
 
         case 2:
-            return 1   // Tab Bar
+            return 1   // TabBar
 
         case 3:
 
             switch selectedTab {
 
             case .explore:
-                return min(stocks.count, 3) + 1
+                return min(stocks.count, 3) + 2
 
             case .positions:
                 return 1
@@ -190,16 +203,19 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             }
 
         case 4:
-            return selectedTab == .explore ? 1 : 0   // Products section
+            return selectedTab == .explore ? 1 : 0   // Products
 
         case 5:
-            return 2   // Top Movers
+            return selectedTab == .explore ? 2 : 0   // Top Movers
 
         case 6:
             return selectedTab == .explore ? 1 : 0   // Volume Shockers
 
         case 7:
             return selectedTab == .explore ? 1 : 0   // Trading Screens
+
+        case 8:
+            return selectedTab == .explore ? 1 : 0   // Sector Trending
 
         default:
             return 0
@@ -220,6 +236,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 for: indexPath
             ) as! TopHeaderCell
 
+
         // Ticker
         case 1:
             return collectionView.dequeueReusableCell(
@@ -227,7 +244,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 for: indexPath
             ) as! TickerSectionCell
 
-        // Tab Bar
+
+        // TabBar
         case 2:
 
             let cell = collectionView.dequeueReusableCell(
@@ -241,19 +259,36 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 guard let self = self else { return }
 
                 self.selectedTab = tab
-                self.collectionView.reloadSections(IndexSet([1,3,4,5,6,7]))
+
+                // safest refresh
+                self.collectionView.reloadData()
             }
 
             return cell
 
-        // Most Bought Stocks
+
+        // MARK: Most Bought Stocks
+
         case 3:
 
             switch selectedTab {
 
+       
             case .explore:
 
-                if indexPath.item == 3 {
+                // HEADER
+                if indexPath.item == 0 {
+
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: "MostBoughtHeaderCell",
+                        for: indexPath
+                    ) as! MostBoughtHeaderCell
+
+                    return cell
+                }
+
+                // SEE MORE CARD
+                if indexPath.item == 4 {
 
                     let cell = collectionView.dequeueReusableCell(
                         withReuseIdentifier: "CustomFourthCardCell",
@@ -264,12 +299,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                     return cell
                 }
 
+                // STOCK CARDS
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: "MostBougthStock",
                     for: indexPath
                 ) as! MostBougthStock
 
-                let stock = stocks[indexPath.item]
+                let stock = stocks[indexPath.item - 1]
 
                 cell.configure(
                     title: stock.title,
@@ -287,6 +323,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                     withReuseIdentifier: "PositionsEmptyCell",
                     for: indexPath
                 ) as! PositionsEmptyCell
+
 
             case .holdings:
 
@@ -312,6 +349,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 )
 
                 return cell
+
 
             case .watchlist:
 
@@ -341,6 +379,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
                 return cell
 
+
             case .orders:
 
                 return collectionView.dequeueReusableCell(
@@ -352,7 +391,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 return UICollectionViewCell()
             }
 
-        // Products
+
+        // MARK: Products
+
         case 4:
 
             return collectionView.dequeueReusableCell(
@@ -360,7 +401,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 for: indexPath
             ) as! ProductsToolsSectionCell
 
-        // Top Movers
+
+        // MARK: Top Movers
+
         case 5:
 
             if indexPath.item == 0 {
@@ -386,7 +429,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
             return cell
 
-        // Volume Shockers
+
+        // MARK: Volume Shockers
+
         case 6:
 
             return collectionView.dequeueReusableCell(
@@ -394,7 +439,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 for: indexPath
             ) as! VolumeShockersCell
 
-        // Trading Screens
+
+        // MARK: Trading Screens
+
         case 7:
 
             return collectionView.dequeueReusableCell(
@@ -402,12 +449,24 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
                 for: indexPath
             ) as! TradingScreensCell
 
+
+        // MARK: Sector Trending
+
+        case 8:
+
+            return collectionView.dequeueReusableCell(
+                withReuseIdentifier: "SectorsTrendingCell",
+                for: indexPath
+            ) as! SectorsTrendingCell
+
+
         default:
             return UICollectionViewCell()
         }
     }
 
-    // MARK: - Cell Sizes
+
+    // MARK: Cell Sizes
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -415,6 +474,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
         switch indexPath.section {
 
+            
         case 0,1,2:
             return CGSize(width: collectionView.frame.width, height: 50)
 
@@ -424,6 +484,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
             case .explore:
 
+                // HEADER CELL
+                if indexPath.item == 0 {
+                    return CGSize(width: collectionView.frame.width, height: 40)
+                }
+
+                // CARD WIDTH CALCULATION
                 let padding: CGFloat = 16 * 3
                 let width = (collectionView.frame.width - padding) / 2
 
@@ -458,6 +524,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         case 4:
             return CGSize(width: collectionView.frame.width, height: 200)
 
+
         case 5:
 
             if indexPath.item == 0 {
@@ -466,11 +533,18 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
             return CGSize(width: collectionView.frame.width, height: 400)
 
+
         case 6:
             return CGSize(width: collectionView.frame.width, height: 480)
 
+
         case 7:
             return CGSize(width: collectionView.frame.width, height: 437)
+
+
+        case 8:
+            return CGSize(width: collectionView.frame.width, height: 425)
+
 
         default:
             return .zero

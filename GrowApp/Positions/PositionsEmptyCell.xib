@@ -56,31 +56,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="0Kx-EM-ATw">
-                                <rect key="frame" x="10" y="372.33333333333331" width="249" height="35"/>
+                                <rect key="frame" x="10" y="372.33333333333331" width="269" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26x-lo-uet">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="35"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="5 Min"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="5 Min">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="btn1:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4PF-Gi-pbH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL0-Vf-5ta">
-                                        <rect key="frame" x="85" y="0.0" width="79" height="35"/>
+                                        <rect key="frame" x="91.666666666666657" y="0.0" width="85.666666666666657" height="35"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="15 min"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="15 min">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="btn2:" destination="gTV-IL-0wX" eventType="touchUpInside" id="AdL-Pz-mRu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frf-De-jT4">
-                                        <rect key="frame" x="170" y="0.0" width="79" height="35"/>
+                                        <rect key="frame" x="183.33333333333334" y="0.0" width="85.666666666666657" height="35"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="1 hrs"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="1 hrs">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="btn3:" destination="gTV-IL-0wX" eventType="touchUpInside" id="NbD-6W-DuL"/>
                                         </connections>
@@ -112,7 +118,7 @@
                             <constraint firstItem="yHP-jg-kLb" firstAttribute="centerX" secondItem="BwP-4y-R9h" secondAttribute="centerX" id="DUn-zr-ofE"/>
                             <constraint firstItem="BwP-4y-R9h" firstAttribute="centerX" secondItem="Yc4-jU-M3N" secondAttribute="centerX" id="FJQ-Hj-Sba"/>
                             <constraint firstItem="0Kx-EM-ATw" firstAttribute="leading" secondItem="EBn-3o-EAE" secondAttribute="leading" constant="10" id="GGt-sL-KeF"/>
-                            <constraint firstAttribute="trailing" secondItem="0Kx-EM-ATw" secondAttribute="trailing" constant="135" id="PqO-1N-xW3"/>
+                            <constraint firstAttribute="trailing" secondItem="0Kx-EM-ATw" secondAttribute="trailing" constant="115" id="PqO-1N-xW3"/>
                             <constraint firstAttribute="bottom" secondItem="qfK-Ye-ucz" secondAttribute="bottom" constant="29.670000000000002" id="Tv2-Vl-kq8"/>
                             <constraint firstItem="qfK-Ye-ucz" firstAttribute="leading" secondItem="EBn-3o-EAE" secondAttribute="leading" constant="16" id="WX2-1o-f42"/>
                             <constraint firstAttribute="trailing" secondItem="qfK-Ye-ucz" secondAttribute="trailing" constant="16" id="Y1W-t5-a2x"/>

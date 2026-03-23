@@ -22,19 +22,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otr-LV-SrW">
-                                <rect key="frame" x="16" y="20" width="588" height="20.333333333333329"/>
+                                <rect key="frame" x="16" y="20" width="568" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PfG-iE-jvU">
-                                <rect key="frame" x="250" y="10" width="120" height="40"/>
+                                <rect key="frame" x="230" y="10" width="140" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9e-7H-CoV">
-                                        <rect key="frame" x="0.0" y="0.0" width="55" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="40"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZIw-HK-QPt">
-                                                <rect key="frame" x="10" y="12.33333333333333" width="35" height="15.66666666666667"/>
+                                                <rect key="frame" x="10" y="12.33333333333333" width="45" height="15.66666666666667"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                         </subviews>
@@ -47,10 +47,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEC-Mn-hAU">
-                                        <rect key="frame" x="65" y="0.0" width="55" height="40"/>
+                                        <rect key="frame" x="75" y="0.0" width="65" height="40"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KHl-A7-tmz">
-                                                <rect key="frame" x="10" y="12.666666666666664" width="35" height="15"/>
+                                                <rect key="frame" x="10" y="12.666666666666664" width="45" height="15"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                         </subviews>
@@ -70,7 +70,7 @@
                             <constraint firstItem="otr-LV-SrW" firstAttribute="centerY" secondItem="6Wc-j8-nz3" secondAttribute="centerY" id="HVe-a5-W5K"/>
                             <constraint firstAttribute="trailing" secondItem="PfG-iE-jvU" secondAttribute="trailing" constant="20" id="NGQ-Mb-2sb"/>
                             <constraint firstItem="otr-LV-SrW" firstAttribute="leading" secondItem="6Wc-j8-nz3" secondAttribute="leading" constant="16" id="qtN-lF-fzt"/>
-                            <constraint firstItem="PfG-iE-jvU" firstAttribute="leading" secondItem="6Wc-j8-nz3" secondAttribute="leading" constant="250" id="rQJ-nB-J3o"/>
+                            <constraint firstItem="PfG-iE-jvU" firstAttribute="leading" secondItem="6Wc-j8-nz3" secondAttribute="leading" constant="230" id="rQJ-nB-J3o"/>
                             <constraint firstItem="PfG-iE-jvU" firstAttribute="top" secondItem="6Wc-j8-nz3" secondAttribute="top" constant="10" id="tef-Lz-rLf"/>
                             <constraint firstItem="PfG-iE-jvU" firstAttribute="centerX" secondItem="otr-LV-SrW" secondAttribute="centerX" id="vCW-KX-umC"/>
                             <constraint firstAttribute="bottom" secondItem="PfG-iE-jvU" secondAttribute="bottom" constant="10" id="ynm-fh-2xc"/>

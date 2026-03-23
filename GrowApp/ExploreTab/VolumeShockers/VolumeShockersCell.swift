@@ -49,7 +49,7 @@ UICollectionViewDelegateFlowLayout {
         ),
 
         VolumeStock(
-            name: "Jindal Poly Investment",
+            name: "Jindal Poly",
             change: "+753%",
             volume: "95,441",
             logo: "Jindal"

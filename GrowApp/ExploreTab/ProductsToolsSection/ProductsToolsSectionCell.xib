@@ -22,13 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LsZ-Rj-ZF0">
-                                <rect key="frame" x="16" y="16" width="361" height="114"/>
+                                <rect key="frame" x="0.0" y="16" width="393" height="114"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFL-Bz-6eu">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="4"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="4"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gJe-QU-LRe">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="4"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="4"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Products and tools" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZP-ac-7HA">
                                                         <rect key="frame" x="0.0" y="0.0" width="139.66666666666666" height="4"/>
@@ -37,11 +37,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="CLA-gJ-uEg">
-                                                        <rect key="frame" x="139.66666666666666" y="0.0" width="109" height="4"/>
+                                                        <rect key="frame" x="139.66666666666666" y="0.0" width="140.99999999999997" height="4"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XM6-um-3Lc">
-                                                        <rect key="frame" x="248.66666666666671" y="0.0" width="112.33333333333334" height="4"/>
+                                                        <rect key="frame" x="280.66666666666669" y="0.0" width="112.33333333333331" height="4"/>
                                                         <color key="tintColor" systemColor="systemGray4Color"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="See more  ⌵">
@@ -60,10 +60,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcS-L8-8FC">
-                                        <rect key="frame" x="0.0" y="14" width="361" height="100"/>
+                                        <rect key="frame" x="0.0" y="14" width="393" height="100"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NVY-bK-tUG">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="593-lR-8G0"/>
@@ -90,9 +90,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LsZ-Rj-ZF0" secondAttribute="bottom" id="KeD-C7-MYJ"/>
-                            <constraint firstItem="LsZ-Rj-ZF0" firstAttribute="leading" secondItem="aAF-mo-T1r" secondAttribute="leading" constant="16" id="KgO-ob-g1N"/>
+                            <constraint firstItem="LsZ-Rj-ZF0" firstAttribute="leading" secondItem="aAF-mo-T1r" secondAttribute="leading" id="KgO-ob-g1N"/>
                             <constraint firstItem="LsZ-Rj-ZF0" firstAttribute="top" secondItem="aAF-mo-T1r" secondAttribute="top" constant="16" id="Oj0-sr-LN1"/>
-                            <constraint firstAttribute="trailing" secondItem="LsZ-Rj-ZF0" secondAttribute="trailing" constant="16" id="W9l-0p-bgh"/>
+                            <constraint firstAttribute="trailing" secondItem="LsZ-Rj-ZF0" secondAttribute="trailing" id="W9l-0p-bgh"/>
                         </constraints>
                     </view>
                 </subviews>

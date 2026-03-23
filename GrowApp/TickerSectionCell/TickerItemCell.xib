@@ -93,7 +93,7 @@
                 <constraint firstAttribute="bottom" secondItem="GrC-Oz-ftd" secondAttribute="bottom" id="o5N-CL-Eqs"/>
             </constraints>
             <connections>
-                <outlet property="changeLabel" destination="3wj-WR-DWw" id="9c3-um-nv2"/>
+                <outlet property="changeLabel" destination="3wj-WR-DWw" id="kKS-rp-k7B"/>
                 <outlet property="nameLabel" destination="jZ7-Ng-bvI" id="mwV-dG-1pz"/>
                 <outlet property="priceLabel" destination="2pY-ta-bNY" id="PBB-OR-Wly"/>
             </connections>

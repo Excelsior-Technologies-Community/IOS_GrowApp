@@ -25,4 +25,3 @@ class TickerItemCell: UICollectionViewCell {
           changeLabel.textColor = ticker.isPositive ? .systemGreen : .systemRed
       }
 }
-
